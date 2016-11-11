@@ -1,10 +1,9 @@
 package com.sherpa.ml.creditrisk
 
-//import com.sherpa.ml.creditrisk.Credit.Credit
 import org.apache.spark.rdd.RDD
 
 /**
-  * Created by sherpa on 11/10/16.
+  * Created by Ashish Nagdev on 11/10/16.
   */
 object CreditParser {
   def parseCredit(line: Array[Double]): Credit = {
@@ -20,10 +19,5 @@ object CreditParser {
   def parseRDD(rdd: RDD[String]): RDD[Array[Double]] = {
     rdd.map(_.split(",")).map(_.map(_.toDouble))
   }
-
-
-
-
-
 
 }

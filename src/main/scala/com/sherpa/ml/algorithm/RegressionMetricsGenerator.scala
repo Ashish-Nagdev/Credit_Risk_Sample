@@ -8,7 +8,7 @@ import org.apache.spark.sql.DataFrame
   */
 object RegressionMetricsGenerator {
 
-  def regressionMetrics(predictions: DataFrame)={
+  def regressionMetrics(predictions: DataFrame) = {
     val rm = new RegressionMetrics(
       predictions.select("prediction", "label").rdd.map(x =>
         (x(0).asInstanceOf[Double], x(1).asInstanceOf[Double]))

@@ -10,7 +10,8 @@ import org.apache.spark.sql.DataFrame
 object BinaryClassification {
 
   val evaluator = new BinaryClassificationEvaluator().setLabelCol("label")
-  def generatePredictions(testData:DataFrame ,model: RandomForestClassificationModel ):DataFrame = {
+
+  def generatePredictions(testData: DataFrame, model: RandomForestClassificationModel): DataFrame = {
 
     val predictions = model.transform(testData)
     model.toDebugString
@@ -18,7 +19,7 @@ object BinaryClassification {
 
   }
 
-  def calcAccuracy(predictions:DataFrame):Double={
+  def calcAccuracy(predictions: DataFrame): Double = {
     evaluator.evaluate(predictions)
   }
 
