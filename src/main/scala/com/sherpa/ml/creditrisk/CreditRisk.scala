@@ -17,14 +17,14 @@ import com.sherpa.ml.creditrisk.CreditRisk._
 class CreditRisk(creditDF: DataFrame) {
 
   val assembler = new VectorAssembler().setInputCols(featureCols).setOutputCol("features")
-  val df2 = assembler.transform(creditDF)
-  df2.show
+  val assemblerDF = assembler.transform(creditDF)
+  assemblerDF.show
 
   val labelIndexer = new StringIndexer().setInputCol("creditability").setOutputCol("label")
-  val df3 = labelIndexer.fit(df2).transform(df2)
-  df3.show
+  val labelIndexerDF = labelIndexer.fit(assemblerDF).transform(assemblerDF)
+  labelIndexerDF.show
 
-  val Array(trainingData, testData) = df3.randomSplit(Array(0.7, 0.3), splitSeed)
+  val Array(trainingData, testData) = labelIndexerDF.randomSplit(Array(trainingDataVal, testDataVal), splitSeed)
 
   val classifier = generatelassifierModel(maximumDepth, numTrees, splitSeed)
   val model = trainClassifierModel(classifier, trainingData)
@@ -88,5 +88,8 @@ object CreditRisk {
   val splitSeed = 5043
   val maximumDepth = 3
   val numTrees = 20
+
+  val trainingDataVal = 0.7
+  val testDataVal = 0.3
 
 }
