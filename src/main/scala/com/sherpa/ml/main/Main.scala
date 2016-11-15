@@ -11,7 +11,7 @@ import com.sherpa.ml.creditrisk._
 object Main {
   def main(args: Array[String]) {
 
-    val conf = new SparkConf().setAppName("SparkDFebay").setMaster("local")
+    val conf = new SparkConf().setAppName("CreditAnalysis").setMaster("local")
     val sc = new SparkContext(conf)
     val sqlContext = new SQLContext(sc)
     import sqlContext._
