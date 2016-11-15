@@ -61,8 +61,6 @@ class CreditRisk(creditDF: DataFrame) {
   val accuracy2 = evaluator.evaluate(predictions2)
   println("Accuracy after pipeline fitting: " + accuracy2)
 
-  println(pipelineFittedModel.bestModel.asInstanceOf[org.apache.spark.ml.PipelineModel].stages(0))
-
   pipelineFittedModel
     .bestModel.asInstanceOf[org.apache.spark.ml.PipelineModel]
     .stages(0)
