@@ -19,3 +19,21 @@ no
 Q2: Is Length of current employment > 1 year?
 No
 Not Creditable
+
+Random Forests
+Random Forest is a popular ensemble learning method for Classification and regression. The algorithm builds a model consisting of multiple decision trees , based on different subsets of data at the training stage. Predictions are made by combining the output from all of the trees which reduces the variance, and improves the predictive accuracy. For Random Forest Classification each tree’s prediction is counted as a vote for one class. The label is predicted to be the class which receives the most votes.
+
+Analyze Credit Risk with Spark Machine Learning Scenario
+Our data is bank loan Credit Data Set which classifies people described by a set of attributes as good or bad credit risks.
+
+In this scenario, we will build a random forest of decision trees to predict the label / classification of Creditable or not based on the following features:
+Label → Creditable or Not Creditable (1 or 0)
+Features → {balance, history, purpose…}
+
+Extract Features
+To build a classifier model, you first extract the features that most contribute to the classification. In the german credit data set the data is labeled with two classes – 1 (creditable) and 0 (not creditable).
+The features for each item consists of the fields shown below:
+Label → creditable: 0 or 1
+Features → {"balance", "duration", "history", "purpose", "amount", "savings", "employment", "instPercent", "sexMarried", "guarantors", "residenceDuration", "assets", "age", "concCredit", "apartment", "credits", "occupation", "dependents", "hasPhone", "foreign"}
+
+
