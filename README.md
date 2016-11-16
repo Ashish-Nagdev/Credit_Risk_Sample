@@ -36,4 +36,7 @@ The features for each item consists of the fields shown below:
 Label → creditable: 0 or 1
 Features → {"balance", "duration", "history", "purpose", "amount", "savings", "employment", "instPercent", "sexMarried", "guarantors", "residenceDuration", "assets", "age", "concCredit", "apartment", "credits", "occupation", "dependents", "hasPhone", "foreign"}
 
+Using an ML pipeline
+We will next train the model using a pipeline, which can give better results. A pipeline provides a simple way to try out different combinations of parameters, using a process called grid search, where you set up the parameters to test, and MLLib will test all the combinations. Pipelines make it easy to tune an entire model building workflow at once, rather than tuning each element in the Pipeline separately.
+
 
