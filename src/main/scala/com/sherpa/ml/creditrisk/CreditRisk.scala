@@ -43,7 +43,7 @@ class CreditRisk(creditDF: DataFrame) {
     .addGrid(classifier.maxBins, Array(25, 31))
     .addGrid(classifier.maxDepth, Array(5, 10))
     .addGrid(classifier.numTrees, Array(20, 60))
-    .addGrid(classifier.impurity, Array("entropy", "gini"))
+    .addGrid(classifier.impurity, Array(entropyImpurity, giniImpurity))
     .build()
 
   val steps: Array[PipelineStage] = Array(classifier)
@@ -53,7 +53,7 @@ class CreditRisk(creditDF: DataFrame) {
     .setEstimator(pipeline)
     .setEvaluator(evaluator)
     .setEstimatorParamMaps(paramGrid)
-    .setNumFolds(10)
+    .setNumFolds(numFolds)
 
   val pipelineFittedModel = cv.fit(trainingData)
 
@@ -86,8 +86,12 @@ object CreditRisk {
   val splitSeed = 5043
   val maximumDepth = 3
   val numTrees = 20
+  val numFolds = 10
 
   val trainingDataVal = 0.7
   val testDataVal = 0.3
+
+  val entropyImpurity = "entropy"
+  val giniImpurity = "gini"
 
 }
