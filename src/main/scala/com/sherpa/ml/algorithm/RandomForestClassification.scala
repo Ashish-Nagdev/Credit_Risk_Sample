@@ -9,8 +9,8 @@ import org.apache.spark.sql.DataFrame
   */
 object RandomForestClassification {
 
-  def generatelassifierModel(maxDepth: Int, numTrees: Int, seed: Int): RandomForestClassifier = {
-    new RandomForestClassifier().setImpurity("gini").setMaxDepth(maxDepth).setNumTrees(numTrees).setFeatureSubsetStrategy("auto").setSeed(seed)
+  def generatelassifierModel(maxDepth: Int, numTrees: Int, seed: Int, impurity:String): RandomForestClassifier = {
+    new RandomForestClassifier().setImpurity(impurity).setMaxDepth(maxDepth).setNumTrees(numTrees).setFeatureSubsetStrategy("auto").setSeed(seed)
 
   }
 

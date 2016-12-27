@@ -26,7 +26,7 @@ class CreditRisk(creditDF: DataFrame) {
 
   val Array(trainingData, testData) = labelIndexerDF.randomSplit(Array(trainingDataVal, testDataVal), splitSeed)
 
-  val classifier = generatelassifierModel(maximumDepth, numTrees, splitSeed)
+  val classifier = generatelassifierModel(maximumDepth, numTrees, splitSeed, giniImpurity)
   val model = trainClassifierModel(classifier, trainingData)
   val predictions = generatePredictions(testData, model)
   val accuracy = calcAccuracy(predictions)
