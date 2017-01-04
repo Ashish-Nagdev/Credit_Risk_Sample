@@ -17,6 +17,7 @@ object Main {
     import sqlContext._
     import sqlContext.implicits._
 
+    sc.setLogLevel("ERROR")
     val creditDF = parseRDD(sc.textFile("credit.csv")).map(parseCredit).toDF().cache()
     creditDF.registerTempTable("credit")
     creditDF.printSchema
